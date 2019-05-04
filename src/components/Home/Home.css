@@ -44,16 +44,8 @@
     font-weight: 400; 
 }
 
-.HomeDescrFirstDiv p {
-    color: #757575;
-    font-family: "Lato", sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-}
-
 .HomeDescrFirstDiv h5 {
     padding: 32px 0;
-    font-family: "Lato", sans-serif;
     font-weight: 400; 
     margin: 10px 0;
     font-size: 18px;
@@ -67,19 +59,10 @@
     text-rendering: auto;
     text-align: center;
     font-size: 200px;
-    color: #00b4ff;
+    color: #8B0000;
     padding-top: 64px;
     padding-bottom: 64px;
 }
-
-@media (max-width: 601px) {
-    .HomeDescrFirstContent {
-        flex-direction: column;
-    }
-}
-
-/* Features section */
-
 
 .FeaturesSection {
   background-color: #8B0000;
@@ -94,7 +77,7 @@
 .FeaturesHeaderSection h2 {
   font-family: 'Open Sans', sans-serif;
   font-size: 3em;
-  color: #42464b;
+  color: #ffffff;
   font-weight: 700;
   line-height: 48px;
   padding-top: 2em;
@@ -103,7 +86,7 @@
 
 .FeaturesHeaderSection p {
   font-family: 'Open Sans', sans-serif;
-  color: #313841;
+  color: #DAA520;
   font-weight: 400;
   font-size: 1.3em;
   line-height: 24px;
@@ -128,23 +111,42 @@
 }
 
 .FeaturesItem {
+  margin-top: 25px;
   width: 50%;
 }
 
 .FeaturesIcon {
   box-sizing: border-box;
-  position: absolute;
-  margin-left: -115px;
+/*  position: absolute;
+  margin-left: -115px;*/
   max-width: 100%;
-  width: 95px;
+  width: 103px;
   height: 103px;
+  background: url(../../assets/castle.png);
 }
 
-/*.FeaturesItem:nth-child(1) .Featuresicon {
-  background: url(../img/what-we-do-sprite.png) no-repeat left top;
+.FeaturesItem:nth-child(1) .FeaturesIcon {
+  background: url(../../assets/swords.png);
 }
 
-.FeaturesItem:nth-child(2) .Featuresicon {
+.FeaturesItem:nth-child(2) .FeaturesIcon {
+  background: url(../../assets/castle.png);
+}
+
+.FeaturesItem:nth-child(3) .FeaturesIcon {
+  background: url(../../assets/crown.png);
+}
+
+.FeaturesItem:nth-child(4) .FeaturesIcon {
+  background: url(../../assets/ship.png);
+}
+
+
+/*.FeaturesItem:nth-child(2) .FeaturesIcon {
+  background: url(../../assets/crowns.png);
+}
+*/
+/*.FeaturesItem:nth-child(2) .Featuresicon {
   background: url(../img/what-we-do-sprite.png) no-repeat left -103px;
 }
 
@@ -166,7 +168,7 @@
 
 .FeaturesItem h2 {
   font-family: 'Open Sans', sans-serif;
-  color: #42464b;
+  color: #DAA520;
   font-weight: 600;
   font-size: 30px;
   line-height: 30px;
@@ -201,5 +203,11 @@
 
   .FeaturesItem h2 {
     font-size: 19px;
+  }
+}
+
+@media (max-width: 601px) {
+  .HomeDescrFirstContent {
+      flex-direction: column;
   }
 }

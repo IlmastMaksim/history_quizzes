@@ -6,6 +6,8 @@
     flex-flow: column;
     align-items: center;
     height: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2em;
 }
 
 @media (min-width: 650px) {
