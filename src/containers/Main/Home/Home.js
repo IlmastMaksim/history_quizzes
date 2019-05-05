@@ -8,7 +8,7 @@ const home = () => {
         <div>
             <header className={classes.HomeHeader}>
                 <h1 className={classes.HomeHeaderH}>The history we remember</h1>
-                <p className={classes.HomeHeaderText}>An exercise for your intellegence</p>
+                <p className={classes.HomeHeaderText}>An exercise for your intelligence</p>
             </header>
             <div className={classes.HomeDescrFirstWrap}>
                 <div className={classes.HomeDescrFirstContent}>

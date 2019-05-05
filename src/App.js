@@ -3,7 +3,7 @@ import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Layout from './hoc/Layout/Layout';
-import HomeBuilder from './containers/HomeBuilder/HomeBuilder';
+import Main from './containers/Main/Main';
 import Auth from './containers/Auth/Auth';
 import Logout from './containers/Auth/Logout/Logout';
 import * as actions from './store/actions/index';
@@ -17,7 +17,7 @@ class App extends Component {
     let routes = (
       <Switch>
         <Route path="/auth" component={Auth} />
-        <Route path="/" exact component={HomeBuilder} />
+        <Route path="/" exact component={Main} />
         <Redirect to="/" />
       </Switch>
     );
@@ -26,7 +26,7 @@ class App extends Component {
       routes = (
         <Switch>
           <Route path="/logout" component={Logout} />
-          <Route path="/" exact component={HomeBuilder} />
+          <Route path="/" exact component={Main} />
           <Redirect to="/" />
         </Switch>
       );

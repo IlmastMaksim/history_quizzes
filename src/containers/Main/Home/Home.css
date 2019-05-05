@@ -122,49 +122,23 @@
   max-width: 100%;
   width: 103px;
   height: 103px;
-  background: url(../../assets/castle.png);
 }
 
 .FeaturesItem:nth-child(1) .FeaturesIcon {
-  background: url(../../assets/swords.png);
+  background: url(../../../assets/swords.png);
 }
 
 .FeaturesItem:nth-child(2) .FeaturesIcon {
-  background: url(../../assets/castle.png);
+  background: url(../../../assets/castle.png);
 }
 
 .FeaturesItem:nth-child(3) .FeaturesIcon {
-  background: url(../../assets/crown.png);
+  background: url(../../../assets/crown.png);
 }
 
 .FeaturesItem:nth-child(4) .FeaturesIcon {
-  background: url(../../assets/ship.png);
+  background: url(../../../assets/ship.png);
 }
-
-
-/*.FeaturesItem:nth-child(2) .FeaturesIcon {
-  background: url(../../assets/crowns.png);
-}
-*/
-/*.FeaturesItem:nth-child(2) .Featuresicon {
-  background: url(../img/what-we-do-sprite.png) no-repeat left -103px;
-}
-
-.FeaturesItem:nth-child(3) .Featuresicon {
-  background: url(../img/what-we-do-sprite.png) no-repeat left -200px;
-}
-
-.FeaturesItem:nth-child(4) .Featuresicon {
-  background: url(../img/what-we-do-sprite.png) no-repeat left -308px;
-}
-
-.FeaturesItem:nth-child(5) .Featuresicon {
-  background: url(../img/what-we-do-sprite.png) no-repeat left -412px;
-}
-
-.FeaturesItem:nth-child(6) .Featuresicon {
-  background: url(../img/what-we-do-sprite.png) no-repeat left -515px;
-}*/
 
 .FeaturesItem h2 {
   font-family: 'Open Sans', sans-serif;

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Aux from "../../hoc/Aux/Aux";
 
-import Home from '../../components/Home/Home';
+import Home from './Home/Home';
 
-class HomeBuilder extends Component {
+class Main extends Component {
     render() {
         return (
             <Aux>
@@ -13,4 +13,4 @@ class HomeBuilder extends Component {
     }
 }
 
-export default HomeBuilder;
+export default Main;

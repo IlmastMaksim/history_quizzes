@@ -14,6 +14,7 @@ const authStart = ( state, action ) => {
 };
 
 const authSuccess = (state, action) => {
+    console.log('hello')
     return updateObject( state, { 
         token: action.idToken,
         userId: action.userId,
@@ -23,6 +24,7 @@ const authSuccess = (state, action) => {
 };
 
 const authFail = (state, action) => {
+    console.log('bye')
     return updateObject( state, {
         error: action.error,
         loading: false
