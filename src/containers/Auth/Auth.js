@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import ErrorMessage from '../../components/UI/ErrorMessage/ErrorMessage';
 import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
 
@@ -132,9 +133,7 @@ class Auth extends Component {
         let errorMessage = null;
 
         if (this.props.error) {
-            errorMessage = (
-                <p>{this.props.error.message}</p>
-            );
+            errorMessage = <ErrorMessage>Error! Please, try again!</ErrorMessage>
         }
 
         let authRedirect = null;
