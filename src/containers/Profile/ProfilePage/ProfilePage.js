@@ -3,13 +3,14 @@ import React from 'react';
 
 import classes from './ProfilePage.css';
 
-const profilePage = () => {
+const profilePage = (props) => {
+    let email = props.email === undefined ? localStorage.getItem('email') : props.email;
     return (
         <div className={classes.ProfilePageWrap}>
             <div className={classes.ProfilePageUpperPartWrap}>
                 <div className={classes.Avatar}></div>
                 <div className={classes.ProfilePageUpperTextPartWrap}>
-                    <span className={classes.EmailName}>Your email address: <span>test@mail.com</span></span>
+                    <span className={classes.EmailName}>Your email address: <span>{email}</span></span>
                     <a className={classes.TestBtn} href='/#'>Make a test!</a>
                 </div>
             </div>
