@@ -1,4 +1,63 @@
 .ProfilePageWrap {
     height: 100%;
-    margin: 18em 0em;
+    min-height: 45em;
+    padding-top: 10em; 
+}
+
+.ProfilePageUpperPartWrap {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.Avatar {
+    box-sizing: border-box;
+    max-width: 100%;
+    margin-left: 10em;
+    height: 300px;
+    width: 300px;
+    background: url(../../../assets/user.png);
+}
+
+.ProfilePageUpperTextPartWrap {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProfilePageUpperPartWrap span {
+    font-family: "Montserrat", sans-serif;
+}
+
+.TestBtn {
+    text-decoration: none;
+    margin-top: 1.5em;
+    border: 5px solid #000000;
+    background: #000;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    -webkit-transition: .2s ease-in;
+    -o-transition: .2s ease-in;
+    transition: .2s ease-in;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.TestBtn:hover {
+    border: 5px solid #DAA520;
+    background: #DAA520;
+    color: #fff;
+}
+
+.ProfilePageUpperTextPartWrap .EmailName, .ProfilePageUpperTextPartWrap .TestBtn {
+    margin: 3em; 
+}
+
+.ProfilePageLowerPartWrap {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10em;
+    margin-top: 10em;
 }

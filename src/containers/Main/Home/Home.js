@@ -54,7 +54,7 @@ const home = () => {
                             <div className={classes.FeaturesIcon}></div>
                                 <h2>Adventures</h2>
                                     <p>
-                                        Learn history though enjoying the quizze  
+                                        Learn history through enjoying the quizze  
                                     </p>
                         </div>
                     </div>
