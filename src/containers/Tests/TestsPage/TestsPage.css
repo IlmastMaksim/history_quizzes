@@ -1,0 +1,128 @@
+.TestsPageWrap {
+    height: 100%;
+    min-height: 45em;
+    padding-top: 10em; 
+    flex-flow: row wrap;
+    align-items: stretch;
+}
+
+.TestsPageListWrap {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 100%;
+}
+
+.TestsPageListWrap .TestsCell {
+    min-height: 176px;
+    width: calc(33.3333% - 15px);
+    margin: 3em auto;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    min-height: 200px;
+    overflow: hidden;
+    width: 330px;
+    z-index: 1;
+    position: relative;
+    background: #ffffff;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+}
+
+.CellTitle {
+    background: #8B0000;
+    align-items: center;
+    color: #ffffff; 
+    display: block;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: stretch;
+    justify-content: stretch;
+    line-height: normal;
+    padding: 16px;
+    -webkit-perspective-origin: 165px 56px;
+    perspective-origin: 165px 56px;
+    -webkit-transform-origin: 165px 56px;
+    -ms-transform-origin: 165px 56px;
+    transform-origin: 165px 56px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.CellTitle .CellTitleText {
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+    color: inherit;
+    display: block;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 24px;
+    line-height: normal;
+    overflow: hidden;
+    -webkit-transform-origin: 149px 48px;
+    -ms-transform-origin: 149px 48px;
+    transform-origin: 149px 48px;
+    margin: 0;
+}
+
+.CellText {
+    color: rgba(0,0,0,.54);
+    font-size: 1rem;
+    line-height: 18px;
+    overflow: hidden;
+    padding: 16px;
+    width: 90%;
+} 
+
+.CellActions {
+    font-size: 16px;
+    line-height: normal;
+    width: 100%;
+    background-color: transparent;
+    padding: 8px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.CellActions a, .CellActions .CellTestAuthor {
+    text-decoration: none;
+    color: #8B0000;
+    background: transparent;
+    border: none;
+    border-radius: 2px;
+    position: relative;
+    height: 36px;
+    margin: 0;
+    min-width: 64px;
+    padding: 0 16px;
+    display: inline-block;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0;
+    overflow: hidden;
+    will-change: box-shadow;
+    -webkit-transition: background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1),-webkit-box-shadow .2s cubic-bezier(.4,0,1,1);
+    transition: background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1),-webkit-box-shadow .2s cubic-bezier(.4,0,1,1);
+    -o-transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+    transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+    transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1),-webkit-box-shadow .2s cubic-bezier(.4,0,1,1);
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    line-height: 36px;
+    vertical-align: middle;
+}
+
+.CellActions .CellTestAuthor {
+    cursor: default;
+    color: rgba(0,0,0,.5);
+}

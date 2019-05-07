@@ -15,7 +15,6 @@ const profilePage = (props) => {
                 </div>
             </div>
             <div className={classes.ProfilePageLowerPartWrap}>
-                <span>You have been using our service for: <span>21 days</span></span>
                 <span>Tests passed through: <span>228</span></span>
                 <span>Tests created: <span>0</span></span>
             </div>
