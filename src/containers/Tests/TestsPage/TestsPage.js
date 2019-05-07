@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import classes from './TestsPage.css';
 
 const testsPage = (props) => {
@@ -19,7 +18,6 @@ const testsPage = (props) => {
                         <span className={classes.CellTestAuthor}>Made by Michael Bay</span>
                     </div>
                 </div>
-                
             </div>
         </div>
     )
