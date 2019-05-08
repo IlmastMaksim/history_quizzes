@@ -6,6 +6,7 @@ import Layout from './hoc/Layout/Layout';
 import Main from './containers/Main/Main';
 import Profile from './containers/Profile/Profile'; 
 import Tests from './containers/Tests/Tests';
+import Creating from './containers/Tests/Creating';
 import Auth from './containers/Auth/Auth';
 import Logout from './containers/Auth/Logout/Logout';
 import * as actions from './store/actions/index';
@@ -16,20 +17,23 @@ class App extends Component {
   }
 
   render () {
-    let routes = (
-      <Switch>
-        <Route path="/auth" component={Auth} />
-        <Route path="/" exact component={Main} />
-        <Redirect to="/" />
-      </Switch>
-    );
-
-    if ( this.props.isAuthenticated ) {
+    let routes;
+    if (this.props.isAuthenticated) {
       routes = (
         <Switch>
           <Route path="/logout" component={Logout} />
           <Route path="/tests" component={Tests} />
+          <Route path="/creating" component={Creating} />
           <Route path="/profile" component={Profile} />
+          <Route path="/" exact component={Main} />
+          <Redirect to="/" />
+        </Switch>
+      );
+    }
+    else {
+      routes = (
+        <Switch>
+          <Route path="/auth" component={Auth} />
           <Route path="/" exact component={Main} />
           <Redirect to="/" />
         </Switch>

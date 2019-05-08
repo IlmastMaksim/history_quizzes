@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { NavLink } from 'react-router-dom';
 
 import classes from './ProfilePage.css';
 
@@ -11,7 +12,7 @@ const profilePage = (props) => {
                 <div className={classes.Avatar}></div>
                 <div className={classes.ProfilePageUpperTextPartWrap}>
                     <span className={classes.EmailName}>Your email address: <span>{email}</span></span>
-                    <a className={classes.TestBtn} href='/#'>Make a test!</a>
+                    <NavLink className={classes.TestBtn} to="/creating">Create a Test!</NavLink>
                 </div>
             </div>
             <div className={classes.ProfilePageLowerPartWrap}>
