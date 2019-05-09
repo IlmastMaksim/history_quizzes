@@ -1,17 +1,93 @@
 .CreatingPageWrap {
     height: 100%;
     min-height: 45em;
-    padding-top: 10em; 
+    padding: 10em 0em;
     flex-flow: row wrap;
     align-items: stretch;
 }
 
 .CreatingForm {
+    height: 1000px;
+    overflow-y: scroll;
+    text-align: center;
     margin: 0 auto;
     max-width: 650px; 
     width: 80%; 
-    padding:10px;
-    border:2px solid;
+    padding: 5em;
+    border:10px solid;
     border-color: #8B0000; 
     background:#FFFFFF;
+}
+
+.FormSelectQuestionsNumber {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 60px;
+    padding: 0.5em;
+    border: none;
+    background: #000000;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.QuestionDiv input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 25px;
+    padding: 0.5em;
+    width: 60%;
+    border: none;
+    background: #000000;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.AnswersDiv input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 25px;
+    padding: 0.5em;
+    width: 20%;
+    border: none;
+    background: #8B0000;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.FormSelectRightAnswer {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 40px;
+    width: 35%;
+    padding: 0.5em;
+    text-align: center;
+    border: none;
+    background: #000000;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.SubmitButton {
+    margin-top: 4em;
+    border: 5px solid #000000;
+    background: #000;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    -webkit-transition: .2s ease-in;
+    -o-transition: .2s ease-in;
+    transition: .2s ease-in;
+    padding: 0.5em;
+    width: 7em;
+    border-radius: 4px;
+}
+
+.SubmitButton:hover {
+    border: 5px solid #DAA520;
+    background: #DAA520;
+    color: #fff;
 }
