@@ -19,6 +19,33 @@
     background:#FFFFFF;
 }
 
+.TitleDiv input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 40px;
+    padding: 0.5em;
+    border: none;
+    background: #000000;
+    font-size: 18px;
+    color: #ffffff;
+    width: 100%;
+}
+
+.DescrDiv textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 180px;
+    width: 100%;
+    padding: 0.5em;
+    border: none;
+    background: #000000;
+    font-size: 18px;
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+}
+
 .FormSelectQuestionsNumber {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -31,30 +58,8 @@
     color: #ffffff;
 }
 
-.QuestionDiv input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    height: 25px;
-    padding: 0.5em;
-    width: 60%;
-    border: none;
-    background: #000000;
-    font-size: 18px;
-    color: #ffffff;
-}
-
-.AnswersDiv input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    height: 25px;
-    padding: 0.5em;
-    width: 20%;
-    border: none;
-    background: #8B0000;
-    font-size: 18px;
-    color: #ffffff;
+.FormSelectQuestionsNumber:hover {
+    cursor: pointer;
 }
 
 .FormSelectRightAnswer {
