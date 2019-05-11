@@ -1,4 +1,4 @@
-.Button {
+.LoginButton {
     background-color: transparent;
     border: none;
     color: white;
@@ -10,12 +10,12 @@
     font-weight: bold;
 }
 
-.Button:first-of-type {
+.LoginButton:first-of-type {
     margin-left: 0;
     padding-left: 0;
 }
 
-.Button:disabled {
+.LoginButton:disabled {
     color: #ccc;
     cursor: not-allowed;
 }
