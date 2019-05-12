@@ -5,5 +5,6 @@ export {
     authCheckState
 } from './auth';
 export {
-    testCreator
+    testCreator,
+    fetchTests
 } from './tests';

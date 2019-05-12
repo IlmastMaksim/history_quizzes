@@ -34,3 +34,43 @@ export const testCreator = ( testData, token ) => {
             } );
     };
 };
+
+export const fetchTestsSuccess = ( fetchedTests ) => {
+    return {
+        type: actionTypes.FETCH_TESTS_SUCCESS,
+        fetchedTests: fetchedTests
+    };
+};
+
+export const fetchTestsFail = ( error ) => {
+    return {
+        type: actionTypes.FETCH_TESTS_FAIL,
+        error: error
+    };
+}
+
+export const fetchTestsStart = () => {
+    return {
+        type: actionTypes.FETCH_TESTS_START
+    };
+};
+
+export const fetchTests = () => {
+    return dispatch => {
+        dispatch(fetchTestsStart());
+        axios.get( 'https://history-quizz.firebaseio.com/tests.json?auth='.concat('DgZvq3wl98TWwmKcsI8UGwROCT4tXvk8w2FiBbWV'))
+            .then( res => {
+                const fetchedTests = [];
+                for ( let key in res.data ) {
+                    fetchedTests.push( {
+                        ...res.data[key],
+                        id: key
+                    } );
+                }
+                dispatch(fetchTestsSuccess(fetchedTests));
+            } )
+            .catch( err => {
+                dispatch(fetchTestsFail(err));
+            } );
+    };
+};

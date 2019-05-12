@@ -1,0 +1,14 @@
+.TestsPageWrap {
+    height: 100%;
+    min-height: 45em;
+    padding-top: 10em; 
+    flex-flow: row wrap;
+    align-items: stretch;
+}
+
+.TestsPageListWrap {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 100%;
+}

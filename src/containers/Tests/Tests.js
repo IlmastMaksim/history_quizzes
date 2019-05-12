@@ -1,22 +1,57 @@
 import React, {Component} from 'react';
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
-import TestsPage from './TestsPage/TestsPage';
+import classes from './Tests.css';
+
+import TestsCell from './TestsCell/TestsCell';
 import Aux from '../../hoc/Aux/Aux';
+
+import Spinner from '../../components/UI/Spinner/Spinner';
+
+import * as actions from '../../store/actions/index';
 
 
 class Tests extends Component {
 
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            a: []
+        }
+    }
 
+    componentDidMount() {
+            this.props.onFetchTests();
+    }
+ 
     render() {
+        let testsCells = this.props.fetchedTests === undefined ? <Spinner /> : this.props.fetchedTests.map((el) => {
+            return <TestsCell key={el.id} title={el.testData.title} descr={el.testData.descr} />
+        });
         return (
             <Aux>
-                <TestsPage />
+                <div className={classes.TestsPageWrap}>
+                    <div className={classes.TestsPageListWrap}>
+                        {testsCells}
+                    </div>
+                </div>
             </Aux>
         )
     }
 } 
 
+const mapStateToProps = state => {
+    return {
+        fetchedTests: state.tests.fetchedTests,
+        loading: state.tests.loading
+    }
+};
 
-export default Tests;
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchTests: () => dispatch(actions.fetchTests())
+    };
+};
+
+
+export default connect( mapStateToProps, mapDispatchToProps ) (Tests);

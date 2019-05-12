@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import TestButton from '../../components/UI/TestButton/TestButton';
 import Spinner from '../../components/UI/Spinner/Spinner';
@@ -275,9 +276,10 @@ class Creating extends Component {
                 config: this.state.testForm[key]
             });
         }
-        console.log(formElementsArray)
+        const sentRedirect = this.props.testSent ? <Redirect to="/"/> : null;
         let form = (
             <form onSubmit={this.testHandler}>
+            {sentRedirect}
                 {formElementsArray.map(formElement => (
                     <Input 
                         key={formElement.id}
@@ -293,7 +295,7 @@ class Creating extends Component {
                         changedAnswer3={(event) => this.inputChangedHandlerAnswer3(event, formElement.id)}
                         changedRightAnswer={(event) => this.inputChangedHandlerRightAnswer(event, formElement.id)} />
                 ))}
-                <TestButton disabled={!this.state.formIsValid}>Submit</TestButton>
+                <TestButton disabled={!this.state.formIsValid}>Send</TestButton>
             </form>
         );
         if ( this.props.loading ) {
@@ -314,7 +316,8 @@ const mapStateToProps = state => {
     return {
         loading: state.tests.loading,
         token: state.auth.token,
-        userId: state.auth.userId
+        userId: state.auth.userId,
+        testSent: state.tests.testSent
     }
 };
 
