@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { NavLink } from 'react-router-dom';
+
 import classes from './TestsCell.css';
 
 const testsCell = (props) => {
@@ -12,8 +14,7 @@ const testsCell = (props) => {
                         {props.descr}
                     </div>
                     <div className={classes.CellActions}>
-                        <a href="/launching">Launch the Test!</a>
-                        <span className={classes.CellTestAuthor}>Made by Michael Bay</span>
+                        <NavLink to="/completing">Complete the Test!</NavLink>
                     </div>
                 </div>
     )

@@ -7,6 +7,7 @@ import Main from './containers/Main/Main';
 import Profile from './containers/Profile/Profile'; 
 import Tests from './containers/Tests/Tests';
 import Creating from './containers/Tests/Creating';
+import Completing from './containers/Tests/Completing';
 import Auth from './containers/Auth/Auth';
 import Logout from './containers/Auth/Logout/Logout';
 import * as actions from './store/actions/index';
@@ -24,6 +25,7 @@ class App extends Component {
           <Route path="/logout" component={Logout} />
           <Route path="/tests" component={Tests} />
           <Route path="/creating" component={Creating} />
+          <Route path="/completing" component={Completing} />
           <Route path="/profile" component={Profile} />
           <Route path="/" exact component={Main} />
           <Redirect to="/" />

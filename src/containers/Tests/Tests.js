@@ -13,13 +13,6 @@ import * as actions from '../../store/actions/index';
 
 class Tests extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            a: []
-        }
-    }
-
     componentDidMount() {
             this.props.onFetchTests();
     }
