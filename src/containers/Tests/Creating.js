@@ -178,7 +178,6 @@ class Creating extends Component {
         const updatedFormElement = { 
             ...updatedOrderForm[inputIdentifier]
         };
-        console.log(updatedFormElement) 
         updatedFormElement.value = event.target.value;
         updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
         updatedFormElement.touched = true;

@@ -18,3 +18,31 @@
     border-color: #8B0000; 
     background:#FFFFFF;
 }
+
+.CompletingTitle h1 {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 45px;
+    padding: 0.5em;
+    border: none;
+    background: #000000;
+    font-size: 32px;
+    color: #ffffff;
+    width: 100%;
+}
+
+.CompletingDescr p {
+    overflow-y: scroll;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 180px;
+    width: 100%;
+    padding: 1.3em;
+    border: none;
+    background: #000000;
+    font-size: 18px;
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+}

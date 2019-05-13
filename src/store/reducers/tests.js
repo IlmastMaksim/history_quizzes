@@ -5,7 +5,8 @@ const initialState = {
     tests: [],
     loading: false,
     testSent: false,
-    fetchedTests: undefined
+    fetchedTests: undefined,
+    fetchedTest: undefined
 };
 
 const testCreatorStart = ( state, action ) => {
@@ -40,15 +41,35 @@ const fetchTestsStart= ( state, action ) => {
     return updateObject( state, { loading: false } );
 };
 
+const fetchTestFail = ( state, action ) => {
+    return updateObject( state, { loading: false } );
+};
+
+const fetchTestSuccess = ( state, action ) => {
+    return updateObject( state, {
+        fetchedTest: action.fetchedTest,
+        loading: false
+    } );
+};
+
+const fetchTestStart= ( state, action ) => {
+    return updateObject( state, { loading: false } );
+};
+
 
 const reducer = ( state = initialState, action ) => {
     switch ( action.type ) {
         case actionTypes.TEST_CREATOR_START: return testCreatorStart( state, action );
         case actionTypes.TEST_CREATOR_SUCCESS: return testCreatorSuccess( state, action )
         case actionTypes.TEST_CREATOR_FAIL: return testCreatorFail( state, action );
+
         case actionTypes.FETCH_TESTS_START: return fetchTestsStart( state, action );
         case actionTypes.FETCH_TESTS_SUCCESS: return fetchTestsSuccess( state, action )
         case actionTypes.FETCH_TESTS_FAIL: return fetchTestsFail( state, action );
+        
+        case actionTypes.FETCH_TEST_START: return fetchTestStart( state, action );
+        case actionTypes.FETCH_TEST_SUCCESS: return fetchTestSuccess( state, action )
+        case actionTypes.FETCH_TEST_FAIL: return fetchTestFail( state, action );
         default: return state;
     }
 };

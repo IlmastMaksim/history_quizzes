@@ -14,7 +14,7 @@ const testsCell = (props) => {
                         {props.descr}
                     </div>
                     <div className={classes.CellActions}>
-                        <NavLink to="/completing">Complete the Test!</NavLink>
+                        <NavLink to="/completing" id={props.id} onClick={props.fetchTestId}>Complete the Test!</NavLink>
                     </div>
                 </div>
     )

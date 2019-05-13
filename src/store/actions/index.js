@@ -6,5 +6,6 @@ export {
 } from './auth';
 export {
     testCreator,
-    fetchTests
+    fetchTests,
+    fetchTest
 } from './tests';

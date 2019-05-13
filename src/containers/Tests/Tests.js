@@ -14,12 +14,16 @@ import * as actions from '../../store/actions/index';
 class Tests extends Component {
 
     componentDidMount() {
-            this.props.onFetchTests();
+        this.props.onFetchTests();
+    }
+
+    fetchTestId = (event) => {
+        this.props.onFetchTest(event.target.id);
     }
  
     render() {
         let testsCells = this.props.fetchedTests === undefined ? <Spinner /> : this.props.fetchedTests.map((el) => {
-            return <TestsCell key={el.id} title={el.testData.title} descr={el.testData.descr} />
+            return <TestsCell key={el.id} id={el.id} fetchTestId={this.fetchTestId} title={el.testData.title} descr={el.testData.descr} />
         });
         return (
             <Aux>
@@ -42,7 +46,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchTests: () => dispatch(actions.fetchTests())
+        onFetchTests: () => dispatch(actions.fetchTests()),
+        onFetchTest: (id) => dispatch(actions.fetchTest(id))
     };
 };
 

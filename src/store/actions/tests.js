@@ -74,3 +74,44 @@ export const fetchTests = () => {
             } );
     };
 };
+
+export const fetchTestSuccess = ( fetchedTest ) => {
+    return {
+        type: actionTypes.FETCH_TEST_SUCCESS,
+        fetchedTest: fetchedTest
+    };
+};
+
+export const fetchTestFail = ( error ) => {
+    return {
+        type: actionTypes.FETCH_TEST_FAIL,
+        error: error
+    };
+}
+
+export const fetchTestStart = () => {
+    return {
+        type: actionTypes.FETCH_TEST_START
+    };
+};
+
+export const fetchTest = (id) => {
+    return dispatch => {
+        dispatch(fetchTestStart());
+        axios.get( 'https://history-quizz.firebaseio.com/tests.json?auth='.concat('DgZvq3wl98TWwmKcsI8UGwROCT4tXvk8w2FiBbWV'))
+            .then( res => {
+                const tests = [];
+                for ( let key in res.data ) {
+                    tests.push( {
+                        ...res.data[key],
+                        id: key
+                    } );
+                }
+                const filteredTests = tests.filter((el) => ( el.id === id ))
+                dispatch(fetchTestSuccess(filteredTests));
+            } )
+            .catch( err => {
+                dispatch(fetchTestFail(err));
+            } );
+    };
+}

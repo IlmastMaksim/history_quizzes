@@ -52,6 +52,26 @@ const input = ( props ) => {
                 </div>
             )
             break;
+        case ( 'question/anwser' ):
+            if (props.questions) {
+                inputElement = (
+                <div>
+                    <div className={classes.QuestionDiv} style={{marginTop: '4em', marginBottom: '2em'}}>
+                        <span>{props.questions.value}</span>
+                    </div>
+                    <div className={classes.AnswersDiv} style={{display:'flex', justifyContent: 'space-evenly', marginBottom: '2em', marginTop: '2em'}}>
+                        <input type='radio' name={props.name}/>{props.questions.valueAnswer1}
+                        <input type='radio' name={props.name}/>{props.questions.valueAnswer2}
+                        <input type='radio' name={props.name}/>{props.questions.valueAnswer3}
+                    </div>
+                </div>
+            )
+            }
+            else {
+                return null;
+            }
+            
+            break;
         default:
             inputElement = <input
                 className={loginInputClasses.join(' ')}
