@@ -60,9 +60,10 @@ const input = ( props ) => {
                         <span>{props.questions.value}</span>
                     </div>
                     <div className={classes.AnswersDiv} style={{display:'flex', justifyContent: 'space-evenly', marginBottom: '2em', marginTop: '2em'}}>
-                        <input type='radio' name={props.name}/>{props.questions.valueAnswer1}
-                        <input type='radio' name={props.name}/>{props.questions.valueAnswer2}
-                        <input type='radio' name={props.name}/>{props.questions.valueAnswer3}
+                        <input type='radio' onChange={props.changedAnswer1} name={props.name}/>{props.questions.valueAnswer1}
+                        <input type='radio' onChange={props.changedAnswer2} name={props.name}/>{props.questions.valueAnswer2}
+                        <input type='radio' onChange={props.changedAnswer3} name={props.name}/>{props.questions.valueAnswer3}
+                        <input type='hidden' value={props.questions.valueRightAnswer} onChange={props.changedRightAnswer} />
                     </div>
                 </div>
             )

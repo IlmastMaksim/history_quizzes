@@ -93,13 +93,11 @@
     color: #ffffff;
 }
 
-
 .QuestionDiv span {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     height: 25px;
-    padding: 0.5em;
     width: 60%;
     border: none;
     background: #8B0000;

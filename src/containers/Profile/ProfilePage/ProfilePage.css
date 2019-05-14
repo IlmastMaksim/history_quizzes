@@ -53,11 +53,3 @@
 .ProfilePageUpperTextPartWrap .EmailName, .ProfilePageUpperTextPartWrap .TestBtn {
     margin: 3em; 
 }
-
-.ProfilePageLowerPartWrap {
-    font-family: "Montserrat", sans-serif;
-    display: flex;
-    flex-direction: column;
-    margin-left: 10em;
-    margin-top: 10em;
-}

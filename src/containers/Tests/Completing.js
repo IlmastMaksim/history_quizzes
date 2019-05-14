@@ -7,8 +7,6 @@ import Input from '../../components/UI/Input/Input';
 import TestButton from '../../components/UI/TestButton/TestButton';
 import Aux from '../../hoc/Aux/Aux';
 
-//import * as actions from '../../store/actions/index';
-
 
 class Completing extends Component {
 
@@ -72,17 +70,40 @@ class Completing extends Component {
                     touched: false
                 }
             },
-            
-            formIsValid: false
+            formIsValid: false,
+            finalResult: undefined,
+            testDone: false
         }
     }
 
     checkHandler = (event) => {
         event.preventDefault();
-  
+        let answers = [];
         for (let stateCell in this.state.testForm) {
-            console.log(this.state.testForm[stateCell])
+            Object.entries(this.state.testForm[stateCell]).map((el) => {
+                if (el[0].slice(-1) === this.props.fetchedTest[0].testData[stateCell].valueRightAnswer) {
+                    answers.push(el)
+                }
+                return true;
+            }) 
         }
+        let newAnswers = answers.map(el => {
+            let arr = [];
+            for (let item of el) {
+                 if (typeof item === 'boolean') {
+                    arr.push(item);
+                 }
+            }
+            return arr;
+        })
+        let updatedAnswers = [];
+        for (let item of newAnswers) {
+            updatedAnswers.push(item[0])
+        }
+        const rightAnswers = updatedAnswers.filter((el)=> {
+            return el === true;
+        })
+        this.setState({finalResult: `You score is ${rightAnswers.length} out of ${updatedAnswers.length}`, testDone: true});
     }
 
     checkValidity(value, rules) {
@@ -92,10 +113,74 @@ class Completing extends Component {
         }
         
         if (rules.required) {
-            isValid = value.trim() !== '' && isValid;
+            isValid = value !== '' && isValid;
         }
         return isValid;
     }
+
+    inputChangedHandlerAnswer1 = (inputIdentifier) => {
+        const updatedOrderForm = {
+            ...this.state.testForm
+        };
+        const updatedFormElement = { 
+            ...updatedOrderForm[inputIdentifier]
+        };
+        updatedFormElement.valueAnswer1 = true;
+        updatedFormElement.valueAnswer2 = false;
+        updatedFormElement.valueAnswer3 = false;
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+        updatedFormElement.touched = true;
+        updatedOrderForm[inputIdentifier] = updatedFormElement;
+        
+        let formIsValid = true;
+        for (let inputIdentifier in updatedOrderForm) {
+            formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
+        }
+        this.setState({testForm: updatedOrderForm, formIsValid: formIsValid});
+    }
+
+    inputChangedHandlerAnswer2 = (inputIdentifier) => {
+        const updatedOrderForm = {
+            ...this.state.testForm
+        };
+        const updatedFormElement = { 
+            ...updatedOrderForm[inputIdentifier]
+        };
+        updatedFormElement.valueAnswer1 = false;
+        updatedFormElement.valueAnswer2 = true;
+        updatedFormElement.valueAnswer3 = false;
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+        updatedFormElement.touched = true;
+        updatedOrderForm[inputIdentifier] = updatedFormElement;
+        
+        let formIsValid = true;
+        for (let inputIdentifier in updatedOrderForm) {
+            formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
+        }
+        this.setState({testForm: updatedOrderForm, formIsValid: formIsValid});
+    }
+
+    inputChangedHandlerAnswer3 = (inputIdentifier) => {
+        const updatedOrderForm = {
+            ...this.state.testForm
+        };
+        const updatedFormElement = { 
+            ...updatedOrderForm[inputIdentifier]
+        };
+        updatedFormElement.valueAnswer1 = false;
+        updatedFormElement.valueAnswer2 = false;
+        updatedFormElement.valueAnswer3 = true;
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+        updatedFormElement.touched = true;
+        updatedOrderForm[inputIdentifier] = updatedFormElement;
+        
+        let formIsValid = true;
+        for (let inputIdentifier in updatedOrderForm) {
+            formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
+        }
+        this.setState({testForm: updatedOrderForm, formIsValid: formIsValid});
+    }
+    
 
     render() {
         const formElementsArray = [];
@@ -105,8 +190,6 @@ class Completing extends Component {
                 config: this.state.testForm[key]
             });
         }
-        let title = this.props.fetchedTest ? this.props.fetchedTest[0].testData.title : null;
-        let descr = this.props.fetchedTest ? this.props.fetchedTest[0].testData.descr : null
         let e = 1;
         let form = (
             <form onSubmit={this.checkHandler}>
@@ -118,20 +201,30 @@ class Completing extends Component {
                         elementType={formElement.config.elementType}
                         invalid={!formElement.config.valid}
                         shouldValidate={formElement.config.validation}
-                        touched={formElement.config.touched} />
+                        touched={formElement.config.touched}
+                        changedAnswer1={() => this.inputChangedHandlerAnswer1(formElement.id)}
+                        changedAnswer2={() => this.inputChangedHandlerAnswer2(formElement.id)}
+                        changedAnswer3={() => this.inputChangedHandlerAnswer3(formElement.id)} />
                 ))}
-                <TestButton>Check</TestButton>
+                <TestButton disabled={!this.state.formIsValid}>Check</TestButton>
             </form>
         );
+        if (this.state.testDone) {
+            form = (
+                <div className={classes.TestDoneWrap}>
+                        <span>{this.state.finalResult}</span>
+                </div>
+            )
+        }
         return (
             <Aux>
                 <div className={classes.CompletingPageWrap}>
                     <div className={classes.CompletingForm}>
                         <div className={classes.CompletingTitle}>
-                            <h1>{title}</h1>
+                            <h1>{this.props.fetchedTest ? this.props.fetchedTest[0].testData.title : null}</h1>
                         </div>
                         <div className={classes.CompletingDescr}>
-                            <p>{descr}</p> 
+                            <p>{this.props.fetchedTest ? this.props.fetchedTest[0].testData.descr : null}</p> 
                         </div>
                         {form}
                     </div>

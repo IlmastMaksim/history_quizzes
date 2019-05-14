@@ -15,10 +15,6 @@ const profilePage = (props) => {
                     <NavLink className={classes.TestBtn} to="/creating">Create a Test!</NavLink>
                 </div>
             </div>
-            <div className={classes.ProfilePageLowerPartWrap}>
-                <span>Tests passed through: <span>228</span></span>
-                <span>Tests created: <span>0</span></span>
-            </div>
         </div>
     )
 }

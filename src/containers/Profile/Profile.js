@@ -7,8 +7,6 @@ import Aux from '../../hoc/Aux/Aux';
 
 class Profile extends Component {
 
-    
-
     render() {
         return (
             <Aux>
