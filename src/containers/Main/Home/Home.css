@@ -182,4 +182,8 @@
   .HomeDescrFirstContent {
       flex-direction: column;
   }
+
+  .HomeHeaderText {
+    font-size: 48px;
+  }
 }
