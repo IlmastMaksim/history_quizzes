@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import classes from './Completing.css';
 
-import Input from '../../components/UI/Input/Input';
-import TestButton from '../../components/UI/TestButton/TestButton';
-import Aux from '../../hoc/Aux/Aux';
+import Input from '../../../components/UI/Input/Input';
+import TestButton from '../../../components/UI/TestButton/TestButton';
+import Aux from '../../../hoc/Aux/Aux';
 
 
 class Completing extends Component {

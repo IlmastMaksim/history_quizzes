@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import classes from './Tests.css';
+import classes from './TestsPage.css';
 
-import TestsCell from './TestsCell/TestsCell';
-import Aux from '../../hoc/Aux/Aux';
+import TestsCell from '../../../components/TestsCell/TestsCell';
+import Aux from '../../../hoc/Aux/Aux';
 
-import Spinner from '../../components/UI/Spinner/Spinner';
+import Spinner from '../../../components/UI/Spinner/Spinner';
 
-import * as actions from '../../store/actions/index';
+import * as actions from '../../../store/actions/index';
 
 
-class Tests extends Component {
+class TestsPage extends Component {
 
     componentDidMount() {
         this.props.onFetchTests();
@@ -52,4 +52,4 @@ const mapDispatchToProps = dispatch => {
 };
 
 
-export default connect( mapStateToProps, mapDispatchToProps ) (Tests);
+export default connect( mapStateToProps, mapDispatchToProps ) (TestsPage);

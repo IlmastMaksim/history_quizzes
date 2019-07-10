@@ -1,0 +1,18 @@
+.ErrorMsg {
+  width: 45%;
+  margin-bottom: 10px;
+  padding: 10px;
+  margin: 10px auto;
+  color: #D8000C;
+  text-align: center;
+  background-color: #FFBABA;
+}
+
+.ErrorIcon {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.Hidden {
+  display: none;
+}

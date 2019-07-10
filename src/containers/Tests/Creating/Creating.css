@@ -1,7 +1,7 @@
 .CreatingPageWrap {
     height: 100%;
     min-height: 30em;
-    padding: 10em 0em;
+    padding: 10em;
     flex-flow: row wrap;
     align-items: stretch;
 }
@@ -13,9 +13,7 @@
     text-align: center;
     margin: 0 auto;
     max-width: 650px; 
-    padding: 1em;
-    border:10px solid;
-    border-color: #8B0000; 
+    padding: 1em; 
     background:#FFFFFF;
 }
 
@@ -29,7 +27,8 @@
     background: #000000;
     font-size: 18px;
     color: #ffffff;
-    width: 100%;
+    width: 75%;
+    margin-bottom: 1em;
 }
 
 .DescrTextarea {
@@ -37,7 +36,7 @@
     -moz-appearance: none;
     appearance: none;
     height: 180px;
-    width: 100%;
+    width: 75%;
     padding: 0.5em;
     border: none;
     background: #000000;
@@ -46,7 +45,13 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.FormSelectQuestionsNumber {
+.QuestionSelectDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.QuestionsSelectInput {
+    width: 50%;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -56,43 +61,9 @@
     background: #000000;
     font-size: 18px;
     color: #ffffff;
+    margin: 10px auto;
 }
 
-.FormSelectQuestionsNumber:hover {
+.QuestionsSelectInput:hover {
     cursor: pointer;
-}
-
-.FormSelectRightAnswer {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    height: 40px;
-    width: 35%;
-    padding: 0.5em;
-    text-align: center;
-    border: none;
-    background: #000000;
-    font-size: 18px;
-    color: #ffffff;
-}
-
-.SubmitButton {
-    margin-top: 4em;
-    border: 5px solid #000000;
-    background: #000;
-    color: #fff;
-    font-size: 2rem;
-    cursor: pointer;
-    -webkit-transition: .2s ease-in;
-    -o-transition: .2s ease-in;
-    transition: .2s ease-in;
-    padding: 0.5em;
-    width: 7em;
-    border-radius: 4px;
-}
-
-.SubmitButton:hover {
-    border: 5px solid #DAA520;
-    background: #DAA520;
-    color: #fff;
 }

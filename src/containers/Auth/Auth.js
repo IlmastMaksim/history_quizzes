@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/LoginButton/LoginButton';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import ErrorMessage from '../../components/UI/ErrorMessage/ErrorMessage';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
 
