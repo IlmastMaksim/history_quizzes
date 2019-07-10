@@ -61,7 +61,7 @@ class Creating extends Component {
     };
 
     isFormValid = (obj) => {
-        if (Object.keys(obj).length === Number(this.state.numberOfQ) && typeof obj !== "undefined" && Object.keys(obj).length > 0) {
+        if (Object.keys(obj).length === Number(this.state.numberOfQ) && typeof obj !== "undefined" && Object.keys(obj).length > 0 && this.state.title.length > 0 && this.state.descr.length > 0) {
             for (let key in obj) {
                 const testCell = obj[key];
                 if (Object.keys(testCell).length < 3) { // 3 keys - [ question, answers, rightAnswer ]
@@ -81,7 +81,7 @@ class Creating extends Component {
                 testData: this.state.questions,
                 userId: this.props.userId
             }
-            this.props.onTestCreator(testToBeSent, this.props.token);
+            this.props.onTestSubmission(testToBeSent, this.props.token);
             this.setState({testSent: true}) 
         }
         else {
@@ -106,7 +106,7 @@ class Creating extends Component {
             let id = Number(i + 1)
             questions.push(<Question handleQuestions={this.handleQuestions} id={id} key={id} numberOfA={this.state.numberOfA}/>)
         }
-        const sentRedirect = this.props.testSent ? <Redirect to="/"/> : null;
+        const sentRedirect = this.state.testSent ? <Redirect to="/"/> : null;
         let form = (
             <form onSubmit={this.handleSubmit}>
                 {sentRedirect}
@@ -156,8 +156,7 @@ const mapStateToProps = state => {
     return {
         loading: state.tests.loading,
         token: state.auth.token,
-        userId: state.auth.userId,
-        testSent: state.tests.testSent
+        userId: state.auth.userId
     }
 };
 

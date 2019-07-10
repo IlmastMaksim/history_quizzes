@@ -4,7 +4,6 @@ import { updateObject } from '../utility';
 const initialState = {
     tests: [],
     loading: false,
-    testSent: false,
     fetchedTests: undefined,
     fetchedTest: undefined
 };
@@ -17,8 +16,7 @@ const testCreatorSuccess = ( state, action ) => {
     const newTest = updateObject( action.testData, { id: action.testId } );
     return updateObject( state, {
         loading: false,
-        tests: state.tests.concat( newTest ),
-        testSent: true
+        tests: state.tests.concat( newTest )
     } );
 };
 
