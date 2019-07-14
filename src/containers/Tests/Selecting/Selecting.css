@@ -1,4 +1,4 @@
-.TestsPageWrap {
+.SelectingWrap {
     height: 100%;
     min-height: 45em;
     padding-top: 10em; 
@@ -6,7 +6,7 @@
     align-items: stretch;
 }
 
-.TestsPageListWrap {
+.SelectingListWrap {
     display: flex;
     flex-wrap: wrap;
     text-align: center;

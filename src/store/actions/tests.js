@@ -61,12 +61,14 @@ export const fetchTests = () => {
         axios.get( 'https://history-quizz.firebaseio.com/tests.json?auth='.concat('DgZvq3wl98TWwmKcsI8UGwROCT4tXvk8w2FiBbWV'))
             .then( res => {
                 const fetchedTests = [];
+                console.log(res)
                 for ( let key in res.data ) {
                     fetchedTests.push( {
                         ...res.data[key],
                         id: key
                     } );
                 }
+                console.log(fetchedTests)
                 dispatch(fetchTestsSuccess(fetchedTests));
             } )
             .catch( err => {
@@ -107,8 +109,8 @@ export const fetchTest = (id) => {
                         id: key
                     } );
                 }
-                const filteredTests = tests.filter((el) => ( el.id === id ))
-                dispatch(fetchTestSuccess(filteredTests));
+                const filteredTest = tests.filter((el) => ( el.id === id ))
+                dispatch(fetchTestSuccess(filteredTest[0]));
             } )
             .catch( err => {
                 dispatch(fetchTestFail(err));

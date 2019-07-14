@@ -78,6 +78,8 @@ class Creating extends Component {
         const formValidated = this.isFormValid(this.state.questions);
         if (formValidated) {
             let testToBeSent = {
+                title: this.state.title,
+                descr: this.state.descr,
                 testData: this.state.questions,
                 userId: this.props.userId
             }
@@ -103,7 +105,7 @@ class Creating extends Component {
         let questions = [];
         
         for (let i = 0; i < this.state.numberOfQ; i++) {
-            let id = Number(i + 1)
+            let id = Number(i)
             questions.push(<Question handleQuestions={this.handleQuestions} id={id} key={id} numberOfA={this.state.numberOfA}/>)
         }
         const sentRedirect = this.state.testSent ? <Redirect to="/"/> : null;
@@ -138,9 +140,11 @@ class Creating extends Component {
                 <TestButton>Submit</TestButton>
             </form>
         )
+
         if ( this.props.loading ) {
             form = <Spinner />;
         }
+        
         return (
             <div className={classes.CreatingPageWrap}>
                 <ErrorMessage hidden={this.state.formIsValid}>Please, fill all the inputs!</ErrorMessage>

@@ -2,11 +2,11 @@ import React from 'react';
 
 import { NavLink } from 'react-router-dom';
 
-import classes from './TestsCell.css';
+import classes from './Dashboard.css';
 
-const testsCell = (props) => {
+const dashboard = (props) => {
     return (
-                <div className={classes.TestsCell}>
+                <div className={classes.DashboardCell}>
                     <div className={classes.CellTitle}>
                         <h2 className={classes.CellTitleText}>{props.title}</h2>
                     </div>
@@ -21,4 +21,4 @@ const testsCell = (props) => {
 }
 
 
-export default testsCell; 
+export default dashboard; 

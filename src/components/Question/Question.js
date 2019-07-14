@@ -8,7 +8,7 @@ const question = (props) => {
     let rightAnswers = [];
 
     for (let i = 0; i < props.numberOfA; i++) {
-        answers.push(<input key={(i+1)} id={(i+1)} onChange={props.handleQuestions} type='text' name={`answerquestion` + (Number(props.id))} placeholder={`Answer №` + (i+1)}/>)
+        answers.push(<input key={i} id={i} onChange={props.handleQuestions} type='text' name={`answerquestion` + (Number(props.id))} placeholder={`Answer №` + (i+1)}/>)
     }
 
     rightAnswers = Array.from({length: Number(props.numberOfA)}, (_, i) => i+1).map(el => {

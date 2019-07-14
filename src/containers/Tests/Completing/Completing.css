@@ -14,8 +14,6 @@
     margin: 0 auto;
     max-width: 650px; 
     padding: 1em;
-    border:10px solid;
-    border-color: #8B0000; 
     background:#FFFFFF;
 }
 
@@ -47,11 +45,11 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.TestDoneWrap {
+.QuizzDoneWrap {
     margin-top: 5em;
 }
 
-.TestDoneWrap span {
+.QuizzDoneWrap span {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;

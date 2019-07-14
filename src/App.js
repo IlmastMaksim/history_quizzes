@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Layout from './hoc/Layout/Layout';
 import Main from './containers/Main/Main';
 import Profile from './containers/Profile/Profile'; 
-import TestsPage from './containers/Tests/TestsPage/TestsPage';
+import Selecting from './containers/Tests/Selecting/Selecting';
 import Creating from './containers/Tests/Creating/Creating';
 import Completing from './containers/Tests/Completing/Completing';
 import Auth from './containers/Auth/Auth';
@@ -23,7 +23,7 @@ class App extends Component {
       routes = (
         <Switch>
           <Route path="/logout" component={Logout} />
-          <Route path="/tests" component={TestsPage} />
+          <Route path="/tests" component={Selecting} />
           <Route path="/creating" component={Creating} />
           <Route path="/completing" component={Completing} />
           <Route path="/profile" component={Profile} />

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import classes from './TestsPage.css';
+import classes from './Selecting.css';
 
-import TestsCell from '../../../components/TestsCell/TestsCell';
+import Dashboard from '../../../components/Dashboard/Dashboard';
 import Aux from '../../../hoc/Aux/Aux';
 
 import Spinner from '../../../components/UI/Spinner/Spinner';
@@ -11,7 +11,7 @@ import Spinner from '../../../components/UI/Spinner/Spinner';
 import * as actions from '../../../store/actions/index';
 
 
-class TestsPage extends Component {
+class Selecting extends Component {
 
     componentDidMount() {
         this.props.onFetchTests();
@@ -22,14 +22,14 @@ class TestsPage extends Component {
     }
  
     render() {
-        let testsCells = this.props.fetchedTests === undefined ? <Spinner /> : this.props.fetchedTests.map((el) => {
-            return <TestsCell key={el.id} id={el.id} fetchTestId={this.fetchTestId} title={el.testData.title} descr={el.testData.descr} />
+        let dashboard = this.props.fetchedTests === undefined ? <Spinner /> : this.props.fetchedTests.map((el) => {
+            return <Dashboard key={el.id} id={el.id} fetchTestId={this.fetchTestId} title={el.title} descr={el.descr} />
         });
         return (
             <Aux>
-                <div className={classes.TestsPageWrap}>
-                    <div className={classes.TestsPageListWrap}>
-                        {testsCells}
+                <div className={classes.SelectingWrap}>
+                    <div className={classes.SelectingListWrap}>
+                        {dashboard}
                     </div>
                 </div>
             </Aux>
@@ -52,4 +52,4 @@ const mapDispatchToProps = dispatch => {
 };
 
 
-export default connect( mapStateToProps, mapDispatchToProps ) (TestsPage);
+export default connect( mapStateToProps, mapDispatchToProps ) (Selecting);
