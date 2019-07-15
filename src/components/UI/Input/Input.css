@@ -26,33 +26,6 @@
     background-color: #ccc;
 }
 
-.TitleInput {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    height: 40px;
-    padding: 0.5em;
-    border: none;
-    background: #000000;
-    font-size: 18px;
-    color: #ffffff;
-    width: 100%;
-}
-
-.DescrTextarea {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    height: 180px;
-    width: 100%;
-    padding: 0.5em;
-    border: none;
-    background: #000000;
-    font-size: 18px;
-    color: #ffffff;
-    font-family: 'Open Sans', sans-serif;
-}
-
 
 .Invalid {
     border: 1px solid red;

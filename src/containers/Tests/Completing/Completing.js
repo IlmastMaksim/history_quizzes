@@ -5,7 +5,7 @@ import classes from './Completing.css';
 
 import QuizzItem from '../../../components/QuizzItem/QuizzItem';
 import ErrorMessage from '../../../components/ErrorMessage/ErrorMessage';
-import TestButton from '../../../components/UI/TestButton/TestButton';
+import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import Aux from '../../../hoc/Aux/Aux';
 
@@ -58,14 +58,13 @@ class Completing extends Component {
                     wrongAnswers.push(this.state.quizz[index]);
                 }
             }
-            this.setState({quizzRes: `You score: ${rightAnswers.length} right and ${wrongAnswers.length} wrong answers out of ${this.props.fetchedTest.testData.length} questions`, quizzDone: true});
+            this.setState({quizzRes: `Your result: ${rightAnswers.length} right and ${wrongAnswers.length} wrong answers out of ${this.props.fetchedTest.testData.length} questions`, quizzDone: true});
         }
         else {
             this.setState({formIsValid: false})
         }
         
     }
-
 
     render() {
         let quizzItems = typeof this.props.fetchedTest === "undefined" ? null : this.props.fetchedTest.testData.map((el, i)=> ( // checking if the api is loaded
@@ -74,7 +73,7 @@ class Completing extends Component {
         let form = (
             <form onSubmit={this.handleSubmit}>
                 {quizzItems}
-                <TestButton>Submit</TestButton>
+                <Button type='quizz'>Submit</Button>
             </form>
         )
 

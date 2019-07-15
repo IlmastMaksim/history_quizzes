@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import Input from '../../components/UI/Input/Input';
-import Button from '../../components/UI/LoginButton/LoginButton';
+import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import classes from './Auth.css';
@@ -148,11 +148,12 @@ class Auth extends Component {
                     {errorMessage}
                     <form onSubmit={this.submitHandler}>
                         {form}
-                        <Button btnType="Success">SUBMIT</Button>
+                        <Button type='login' loginType="Success">SUBMIT</Button>
                     </form>
-                    <Button 
+                    <Button
+                        type='login' 
                         clicked={this.switchAuthModeHandler}
-                        btnType="Danger">SWITCH TO {this.state.isSignup ? 'SIGNIN' : 'SIGNUP'}</Button>
+                        loginType="Danger">SWITCH TO {this.state.isSignup ? 'SIGNIN' : 'SIGNUP'}</Button>
                 </div>
             </div>
         );

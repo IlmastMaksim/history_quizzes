@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import ErrorMessage from '../../../components/ErrorMessage/ErrorMessage';
 import Question from '../../../components/Question/Question';
-import TestButton from '../../../components/UI/TestButton/TestButton';
+import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import classes from './Creating.css'
 import * as actions from '../../../store/actions/index';
@@ -137,7 +137,7 @@ class Creating extends Component {
                     </select>
                 </div>
                 {questions}
-                <TestButton>Submit</TestButton>
+                <Button type='quizz'>Submit</Button>
             </form>
         )
 
