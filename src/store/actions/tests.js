@@ -55,20 +55,18 @@ export const fetchTestsStart = () => {
     };
 };
 
-export const fetchTests = () => {
+export const fetchTests = (token) => {
     return dispatch => {
         dispatch(fetchTestsStart());
-        axios.get( 'https://history-quizz.firebaseio.com/tests.json?auth='.concat('DgZvq3wl98TWwmKcsI8UGwROCT4tXvk8w2FiBbWV'))
+        axios.get( 'https://history-quizz.firebaseio.com/tests.json?auth='.concat('', token))
             .then( res => {
                 const fetchedTests = [];
-                console.log(res)
                 for ( let key in res.data ) {
                     fetchedTests.push( {
                         ...res.data[key],
                         id: key
                     } );
                 }
-                console.log(fetchedTests)
                 dispatch(fetchTestsSuccess(fetchedTests));
             } )
             .catch( err => {
@@ -97,10 +95,10 @@ export const fetchTestStart = () => {
     };
 };
 
-export const fetchTest = (id) => {
+export const fetchTest = (id, token) => {
     return dispatch => {
         dispatch(fetchTestStart());
-        axios.get( 'https://history-quizz.firebaseio.com/tests.json?auth='.concat('DgZvq3wl98TWwmKcsI8UGwROCT4tXvk8w2FiBbWV'))
+        axios.get( 'https://history-quizz.firebaseio.com/tests.json?auth='.concat('', token))
             .then( res => {
                 const tests = [];
                 for ( let key in res.data ) {

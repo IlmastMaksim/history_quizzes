@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
+import { simpleCrypto } from '../../../store/utility';
+
 import classes from './Completing.css';
 
 import QuizzItem from '../../../components/QuizzItem/QuizzItem';
@@ -51,7 +53,8 @@ class Completing extends Component {
             let rightAnswers = [];
             let wrongAnswers = [];
             for (let index in this.props.fetchedTest.testData) {
-                if (this.props.fetchedTest.testData[index].rightAnswer === this.state.quizz[index]) {
+                const decryptedRightAnswer = simpleCrypto.decrypt(this.props.fetchedTest.testData[index].rightAnswer) // decrypting right answer to make it comparable
+                if (decryptedRightAnswer === this.state.quizz[index]) {
                     rightAnswers.push(this.state.quizz[index]);
                 }
                 else {

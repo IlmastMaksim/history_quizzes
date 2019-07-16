@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { simpleCrypto } from '../../../store/utility';
 
 import ErrorMessage from '../../../components/ErrorMessage/ErrorMessage';
 import Question from '../../../components/Question/Question';
@@ -55,7 +56,17 @@ class Creating extends Component {
             cloneObj[questionNumber][questionElName] = {}
         }
 
-        questionElName === 'answers' ? cloneObj[questionNumber][questionElName][target.id] = target.value : cloneObj[questionNumber][questionElName] = target.value;
+        
+        if ( questionElName === 'answers' ) {
+            cloneObj[questionNumber][questionElName][target.id] = target.value
+        }
+        else if ( questionElName === 'rightAnswer' ) {
+            const encryptedRightAnswer = simpleCrypto.encrypt(target.value);
+            cloneObj[questionNumber][questionElName] = encryptedRightAnswer;
+        }
+        else {
+            cloneObj[questionNumber][questionElName] = target.value;
+        }
 
         this.setState({questions: cloneObj});
     };

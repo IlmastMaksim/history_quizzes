@@ -14,11 +14,11 @@ import * as actions from '../../../store/actions/index';
 class Selecting extends Component {
 
     componentDidMount() {
-        this.props.onFetchTests();
+        this.props.onFetchTests(this.props.token);
     }
 
     fetchTestId = (event) => {
-        this.props.onFetchTest(event.target.id);
+        this.props.onFetchTest(event.target.id, this.props.token);
     }
  
     render() {
@@ -40,14 +40,15 @@ class Selecting extends Component {
 const mapStateToProps = state => {
     return {
         fetchedTests: state.tests.fetchedTests,
+        token: state.auth.token,
         loading: state.tests.loading
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchTests: () => dispatch(actions.fetchTests()),
-        onFetchTest: (id) => dispatch(actions.fetchTest(id))
+        onFetchTests: (token) => dispatch(actions.fetchTests(token)),
+        onFetchTest: (id, token) => dispatch(actions.fetchTest(id, token))
     };
 };
 
