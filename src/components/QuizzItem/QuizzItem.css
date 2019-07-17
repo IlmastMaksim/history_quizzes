@@ -1,0 +1,61 @@
+.QuizzItemQuestion {
+    background: #DAA520;
+    font-size: 36px;
+    color: #ffffff;
+}
+
+.QuizzItemLabel {
+    display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.QuizzItemLabel input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.QuizzItemCheckmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #000000;
+    border-radius: 50%;
+}
+
+.QuizzItemLabel:hover input ~ .QuizzItemCheckmark {
+    background-color: #ccc;
+  }
+  
+  .QuizzItemLabel input:checked ~ .QuizzItemCheckmark {
+    background-color: #8B0000;
+  }
+  
+  .QuizzItemCheckmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .QuizzItemLabel input:checked ~ .QuizzItemCheckmark:after {
+    display: block;
+  }
+  
+  .QuizzItemLabel .QuizzItemCheckmark:after {
+       top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+  }

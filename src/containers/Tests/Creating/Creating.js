@@ -124,25 +124,25 @@ class Creating extends Component {
             <form onSubmit={this.handleSubmit}>
                 {sentRedirect}
                 <input 
-                    className={classes.TitleInput}
+                    className={classes.CreatingTitleInput}
                     name="title"
                     placeholder="Type the title here"
                     value={this.state.title}
                     onChange={this.handleInputs}
                 />
                 <textarea
-                    className={classes.DescrTextarea}
+                    className={classes.CreatingDescrTextarea}
                     name="descr"
                     placeholder="Type the desciption here"
                     value={this.state.descr}
                     onChange={this.handleInputs}
                 />
-                <div className={classes.QuestionSelectDiv}>
-                    <select className={classes.QuestionsSelectInput} defaultValue="Number of Questions" name='numberOfQ' onChange={this.handleInputs} >
+                <div className={classes.CreatingQuestionSelectDiv}>
+                    <select className={classes.CreatingQuestionsSelectInput} defaultValue="Number of Questions" name='numberOfQ' onChange={this.handleInputs} >
                         <option disabled defaultValue>Number of Questions</option>
                         {numberQValues}
                     </select>
-                    <select className={classes.QuestionsSelectInput} defaultValue="Number of Answers" name='numberOfA' onChange={this.handleInputs} >
+                    <select className={classes.CreatingQuestionsSelectInput} defaultValue="Number of Answers" name='numberOfA' onChange={this.handleInputs} >
                         <option disabled defaultValue>Number of Answers</option>
                         {numberAValues}
                     </select>

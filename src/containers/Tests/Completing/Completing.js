@@ -61,7 +61,7 @@ class Completing extends Component {
                     wrongAnswers.push(this.state.quizz[index]);
                 }
             }
-            this.setState({quizzRes: `Your result: ${rightAnswers.length} right and ${wrongAnswers.length} wrong answers out of ${this.props.fetchedTest.testData.length} questions`, quizzDone: true});
+            this.setState({quizzRes: `Your result: ${rightAnswers.length} right and ${wrongAnswers.length} wrong answers out of ${this.props.fetchedTest.testData.length} questions`, quizzDone: true, formIsValid: true});
         }
         else {
             this.setState({formIsValid: false})

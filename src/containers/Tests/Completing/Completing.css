@@ -18,29 +18,31 @@
 }
 
 .CompletingTitle h1 {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    height: 45px;
-    padding: 0.5em;
-    border: none;
-    background: #000000;
-    font-size: 32px;
-    color: #ffffff;
-    width: 100%;
+       /* -webkit-appearance: none; */
+       -moz-appearance: none;
+       appearance: none;
+       /* height: 45px; */
+       padding: 0.5em;
+       /* border: none; */
+       background: #000000;
+       font-size: 32px;
+       color: #ffffff;
+       /* width: 100%; */
+       font-size: 56px;
 }
 
 .CompletingDescr p {
-    overflow-y: scroll;
-    -webkit-appearance: none;
+        /* overflow-y: scroll; */
+    /* -webkit-appearance: none; */
     -moz-appearance: none;
     appearance: none;
-    height: 180px;
-    width: 100%;
+    /* height: 180px; */
+    /* width: 100%; */
     padding: 1.3em;
     border: none;
+    font-size: 129px;
     background: #000000;
-    font-size: 18px;
+    font-size: 24px;
     color: #ffffff;
     font-family: 'Open Sans', sans-serif;
 }
