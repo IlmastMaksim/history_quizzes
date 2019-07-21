@@ -2,6 +2,7 @@
   "name": "history-quizzes",
   "version": "0.1.0",
   "private": true,
+  "homepage":"https://IlmastMaksim.github.io/history_quizzes",
   "dependencies": {
     "autoprefixer": "7.1.2",
     "axios": "^0.16.2",
