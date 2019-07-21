@@ -4,10 +4,10 @@ With the help of this app, users are able to create history quizzes and launch q
 
 ### Tech Stack
 
-- **React.js* 
-- **Redux.js*
-- **Webpack*
-- **Firebase API*
+- *React.js* 
+- *Redux.js*
+- *Webpack*
+- *Firebase API*
 
 
 ### Installation Instruction:
