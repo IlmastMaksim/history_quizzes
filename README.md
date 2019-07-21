@@ -1,6 +1,13 @@
 # History Quizzes
 
-This app is going to be made with **React.js** and **Redux**. With the help of this app, users are able to create history quizzes and launch quizzes created by other users.
+With the help of this app, users are able to create history quizzes and launch quizzes created by other users.
+
+### Tech Stack
+
+- **React.js* 
+- **Redux.js*
+- **Webpack*
+- **Firebase API*
 
 
 ### Installation Instruction:
@@ -12,7 +19,7 @@ This app is going to be made with **React.js** and **Redux**. With the help of t
 
 ***
 
-The app can be found at **https://historyquizzes.herokuapp.com/**
+The app can be found at **https://ilmastmaksim.github.io/**
 
 ***
 
