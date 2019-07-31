@@ -1,7 +1,7 @@
 .CreatingPageWrap {
     height: 100%;
     min-height: 30em;
-    padding: 10em;
+    padding: 10em 0em;
     flex-flow: row wrap;
     align-items: stretch;
 }
@@ -18,29 +18,31 @@
 }
 
 .CreatingTitleInput {
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
     -moz-appearance: none;
     appearance: none;
-    height: 40px;
-    padding: 0.5em;
-    border: none;
+    /* height: 45px; */
+    padding: 1em;
+    /* border: none; */
     background: #000000;
-    font-size: 18px;
+    font-size: 32px;
     color: #ffffff;
-    width: 75%;
-    margin-bottom: 1em;
+    /* width: 100%; */
+    font-size: 27px;
 }
 
 .CreatingDescrTextarea {
-    -webkit-appearance: none;
+        /* overflow-y: scroll; */
+    /* -webkit-appearance: none; */
     -moz-appearance: none;
     appearance: none;
-    height: 180px;
-    width: 75%;
-    padding: 0.5em;
+    /* height: 180px; */
+    /* width: 100%; */
+    padding: 1em;
     border: none;
+    font-size: 129px;
     background: #000000;
-    font-size: 18px;
+    font-size: 24px;
     color: #ffffff;
     font-family: 'Open Sans', sans-serif;
 }

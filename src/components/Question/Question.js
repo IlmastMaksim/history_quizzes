@@ -4,16 +4,17 @@ import classes from './Question.css';
 
 
 const question = (props) => {
-    let answers = [];
-    let rightAnswers = [];
+    const answers = Array
+                    .from({length: Number(props.numberOfA)}, (_, i) => i+1)
+                    .map(el => {
+                        return <input key={el} id={el} onChange={props.handleQuestions} type='text' name={`answerquestion` + (Number(props.id))} placeholder={`Answer №` + (el)}/>
+                    })
 
-    for (let i = 0; i < props.numberOfA; i++) {
-        answers.push(<input key={i} id={i} onChange={props.handleQuestions} type='text' name={`answerquestion` + (Number(props.id))} placeholder={`Answer №` + (i+1)}/>)
-    }
-
-    rightAnswers = Array.from({length: Number(props.numberOfA)}, (_, i) => i+1).map(el => {
-        return <option name={`righttoquestion` + (Number(props.id))} key={el} value={(el)}>{(el)}</option>
-    })
+    const rightAnswers = Array
+                        .from({length: Number(props.numberOfA)}, (_, i) => i+1)
+                        .map(el => {
+                            return <option name={`righttoquestion` + (Number(props.id))} key={el} value={(el)}>{(el)}</option>
+                        })
 
     return (
         <div>

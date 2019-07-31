@@ -115,10 +115,18 @@ class Creating extends Component {
 
         let questions = [];
         
-        for (let i = 0; i < this.state.numberOfQ; i++) {
+        /*for (let i = 0; i < this.state.numberOfQ; i++) {
             let id = Number(i)
             questions.push(<Question handleQuestions={this.handleQuestions} id={id} key={id} numberOfA={this.state.numberOfA}/>)
-        }
+        }*/
+
+        questions = Array
+                    .from({length: Number(this.state.numberOfQ)}, (_, i) => i+1)
+                    .map(el => {
+                        return <Question handleQuestions={this.handleQuestions} id={el} key={el} numberOfA={this.state.numberOfA}/>
+                    })
+
+
         const sentRedirect = this.state.testSent ? <Redirect to="/"/> : null;
         let form = (
             <form onSubmit={this.handleSubmit}>
