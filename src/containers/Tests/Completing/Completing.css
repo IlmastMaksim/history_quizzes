@@ -1,43 +1,32 @@
 .CompletingPageWrap {
     height: 100%;
-    min-height: 30em;
+    min-height: 35em;
     padding: 10em 0em;
     flex-flow: row wrap;
     align-items: stretch;
 }
 
 .CompletingForm {
-    height: 500px;
-    overflow-y: scroll;
-    overflow-x: hidden;
     text-align: center;
     margin: 0 auto;
-    max-width: 650px; 
+    max-width: 1000px;
     padding: 1em;
-    background:#FFFFFF;
+    background: #FFFFFF;
 }
 
 .CompletingTitle h1 {
-       /* -webkit-appearance: none; */
        -moz-appearance: none;
        appearance: none;
-       /* height: 45px; */
        padding: 0.5em;
-       /* border: none; */
        background: #000000;
        font-size: 32px;
        color: #ffffff;
-       /* width: 100%; */
        font-size: 56px;
 }
 
 .CompletingDescr p {
-        /* overflow-y: scroll; */
-    /* -webkit-appearance: none; */
     -moz-appearance: none;
     appearance: none;
-    /* height: 180px; */
-    /* width: 100%; */
     padding: 1.3em;
     border: none;
     font-size: 129px;
@@ -59,6 +48,6 @@
     width: 60%;
     border: none;
     background: #DAA520;
-    font-size: 18px;
+    font-size: 22px;
     color: #ffffff;
 }

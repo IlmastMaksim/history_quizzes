@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import { simpleCrypto } from '../../../store/utility';
+import { simpleCrypto } from '../../../funcs/utility';
 
 import classes from './Completing.css';
 
-import QuizzItem from '../../../components/QuizzItem/QuizzItem';
+import QuizzItem from '../../../components/Quizz/QuizzItem/QuizzItem';
 import ErrorMessage from '../../../components/ErrorMessage/ErrorMessage';
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';

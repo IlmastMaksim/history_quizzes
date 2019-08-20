@@ -7,37 +7,26 @@
 }
 
 .CreatingForm {
-    height: 500px;
-    overflow-y: scroll;
-    overflow-x: hidden;
     text-align: center;
     margin: 0 auto;
-    max-width: 650px; 
+    max-width: 1000px; 
     padding: 1em; 
     background:#FFFFFF;
 }
 
 .CreatingTitleInput {
-    /* -webkit-appearance: none; */
     -moz-appearance: none;
     appearance: none;
-    /* height: 45px; */
     padding: 1em;
-    /* border: none; */
     background: #000000;
     font-size: 32px;
     color: #ffffff;
-    /* width: 100%; */
     font-size: 27px;
 }
 
 .CreatingDescrTextarea {
-        /* overflow-y: scroll; */
-    /* -webkit-appearance: none; */
     -moz-appearance: none;
     appearance: none;
-    /* height: 180px; */
-    /* width: 100%; */
     padding: 1em;
     border: none;
     font-size: 129px;
