@@ -24,7 +24,7 @@ const question = (props) => {
             <div className={classes.AnswersDiv}>
                 {answers}
             </div>
-            <select className={classes.FormSelectRightAnswer} defaultValue="Right Answer №" onChange={props.handleQuestions}  name={`rightquestion` + (Number(props.id - 1))}>
+            <select className={classes.FormSelectRightAnswer} defaultValue="Right Answer №" onChange={props.handleQuestions}  name={`rightanswerquestion` + (Number(props.id - 1))}>
                 <option disabled defaultValue>Right Answer №</option>
                 {rightAnswers}
             </select>

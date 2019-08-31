@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import classes from './Selecting.css';
 
 import Dashboard from '../../../components/Dashboard/Dashboard';
-import Aux from '../../../hoc/Aux/Aux';
 
 import Spinner from '../../../components/UI/Spinner/Spinner';
 
@@ -26,13 +25,13 @@ class Selecting extends Component {
             return <Dashboard key={el.id} id={el.id} fetchTestId={this.fetchTestId} title={el.title} descr={el.descr} />
         });
         return (
-            <Aux>
+            <React.Fragment>
                 <div className={classes.SelectingWrap}>
                     <div className={classes.SelectingListWrap}>
                         {dashboard}
                     </div>
                 </div>
-            </Aux>
+            </React.Fragment>
         )
     }
 } 

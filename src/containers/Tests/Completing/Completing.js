@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import { connect } from 'react-redux';
 
 import { simpleCrypto } from '../../../funcs/utility';
@@ -9,23 +9,16 @@ import QuizzItem from '../../../components/Quizz/QuizzItem/QuizzItem';
 import ErrorMessage from '../../../components/ErrorMessage/ErrorMessage';
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
-import Aux from '../../../hoc/Aux/Aux';
 
+const Completing = React.memo(props => {
 
-class Completing extends Component {
+    const [quizz, setQuizz] = useState({});
+    const [quizzResult, setQuizzResult] = useState(undefined);
+    const [quizzDone, setQuizzDone] = useState(false);
+    const [formIsValid, setFormIsValid] = useState(true);
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            quizz: {},
-            quizzRes: undefined,
-            quizzDone: false,
-            formIsValid: true
-        }
-    }
-
-    handleQuizzes = ({target}) => {
-        let cloneObj = Object.assign({}, this.state.quizz);
+    const handleQuizzes = ({target}) => {
+        let cloneObj = Object.assign({}, quizz);
 
         const questionId = target.name.split(' ')[1]; // retrieving question`s id number from input`s name
 
@@ -34,34 +27,35 @@ class Completing extends Component {
         }
 
         cloneObj[questionId] = target.value;
-
-        this.setState({quizz: cloneObj})
+        setQuizz(cloneObj)
     }
 
-    isFormValid = (obj, checkerObject = this.props.fetchedTest.testData) => {
+    const isFormValid = (obj, checkerObject = props.fetchedTest.testData) => {
         if (Object.keys(obj).length === checkerObject.length && typeof obj !== "undefined" && Object.keys(obj).length > 0) {
             return true;
         }
         else { return false }
     }
 
-    handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        const formValid = this.isFormValid(this.state.quizz);
+        const formValid = isFormValid(quizz);
 
         if (formValid) {
             let rightAnswers = [];
             let wrongAnswers = [];
-            for (let index in this.props.fetchedTest.testData) {
-                const decryptedRightAnswer = simpleCrypto.decrypt(this.props.fetchedTest.testData[index].rightAnswer) // decrypting right answer to make it comparable
-                if (decryptedRightAnswer === this.state.quizz[index]) {
-                    rightAnswers.push(this.state.quizz[index]);
+            for (let index in props.fetchedTest.testData) {
+                const decryptedRightAnswer = simpleCrypto.decrypt(props.fetchedTest.testData[index].rightAnswer) // decrypting right answer to make it comparable
+                if (decryptedRightAnswer === quizz[index]) {
+                    rightAnswers.push(quizz[index]);
                 }
                 else {
-                    wrongAnswers.push(this.state.quizz[index]);
+                    wrongAnswers.push(quizz[index]);
                 }
             }
-            this.setState({quizzRes: `Your result: ${rightAnswers.length} right and ${wrongAnswers.length} wrong answers out of ${this.props.fetchedTest.testData.length} questions`, quizzDone: true, formIsValid: true});
+            setQuizzResult(`Your result: ${rightAnswers.length} right and ${wrongAnswers.length} wrong answers out of ${props.fetchedTest.testData.length} questions`);
+            setQuizzDone(true);
+            setFormIsValid(true);
         }
         else {
             this.setState({formIsValid: false})
@@ -69,46 +63,45 @@ class Completing extends Component {
         
     }
 
-    render() {
-        let quizzItems = typeof this.props.fetchedTest === "undefined" ? null : this.props.fetchedTest.testData.map((el, i)=> ( // checking if the api is loaded
-            <QuizzItem question={el.question} handleQuizzes={this.handleQuizzes} id={i} answers={el.answers} key={i}/>
-        ))
-        let form = (
-            <form onSubmit={this.handleSubmit}>
-                {quizzItems}
-                <Button type='quizz'>Submit</Button>
-            </form>
-        )
 
-        if (this.state.quizzDone) {
-            form = (
-                <div className={classes.QuizzDoneWrap}>
-                        <span>{this.state.quizzRes}</span>
-                </div>
-            )
-        }
+    let quizzItems = typeof props.fetchedTest === "undefined" ? null : props.fetchedTest.testData.map((el, i)=> ( // checking if the api is loaded
+        <QuizzItem question={el.question} handleQuizzes={handleQuizzes} id={i} answers={el.answers} key={i}/>
+    ))
+    let form = (
+        <form onSubmit={handleSubmit}>
+            {quizzItems}
+            <Button type='quizz'>Submit</Button>
+        </form>
+    )
 
-        if ( this.props.loading ) {
-            form = <Spinner />;
-        }
-        return (
-            <Aux>
-                <div className={classes.CompletingPageWrap}>
-                <ErrorMessage hidden={this.state.formIsValid}>Thq quizz is not completed!</ErrorMessage>
-                    <div className={classes.CompletingForm}>
-                        <div className={classes.CompletingTitle}>
-                            <h1>{this.props.fetchedTest ? this.props.fetchedTest.title : null}</h1>
-                        </div>
-                        <div className={classes.CompletingDescr}>
-                            <p>{this.props.fetchedTest ? this.props.fetchedTest.descr : null}</p> 
-                        </div>
-                        {form}
-                    </div>
-                </div>
-            </Aux>
+    if (quizzDone) {
+        form = (
+            <div className={classes.QuizzDoneWrap}>
+                    <span>{quizzResult}</span>
+            </div>
         )
     }
-} 
+
+    if ( props.loading ) {
+        form = <Spinner />;
+    }
+    return (
+        <React.Fragment>
+            <div className={classes.CompletingPageWrap}>
+            <ErrorMessage hidden={formIsValid}>Thq quizz is not completed!</ErrorMessage>
+                <div className={classes.CompletingForm}>
+                    <div className={classes.CompletingTitle}>
+                        <h1>{props.fetchedTest ? props.fetchedTest.title : null}</h1>
+                    </div>
+                    <div className={classes.CompletingDescr}>
+                        <p>{props.fetchedTest ? props.fetchedTest.descr : null}</p> 
+                    </div>
+                    {form}
+                </div>
+            </div>
+        </React.Fragment>
+        )
+})
 
 
 const mapStateToProps = state => {

@@ -1,10 +1,10 @@
-.ProfilePageWrap {
+.ProfileWrap {
     height: 100%;
     min-height: 45em;
     padding-top: 10em; 
 }
 
-.ProfilePageUpperPartWrap {
+.ProfileUpperPartWrap {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -16,16 +16,16 @@
     margin: auto;
     height: 300px;
     width: 300px;
-    background: url(../../../assets/user.png);
+    background: url(../../assets/user.png);
 }
 
-.ProfilePageUpperTextPartWrap {
+.ProfileUpperTextPartWrap {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
 }
 
-.ProfilePageUpperPartWrap span {
+.ProfileUpperPartWrap span {
     font-family: "Montserrat", sans-serif;
 }
 
@@ -50,6 +50,6 @@
     color: #fff;
 }
 
-.ProfilePageUpperTextPartWrap .EmailName, .ProfilePageUpperTextPartWrap .TestBtn {
+.ProfileUpperTextPartWrap .EmailName, .ProfileUpperTextPartWrap .TestBtn {
     margin: 3em; 
 }

@@ -1,4 +1,4 @@
-.HomeHeader {
+.MainHeader {
     width: auto;
     display: flex;
     flex-direction: column;
@@ -8,25 +8,25 @@
     background-color: #8B0000;
 }
 
-.HomeHeaderH {
+.MainHeaderH {
     font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
     margin: 16px;
     font-size: 64px;
 }
 
-.HomeHeaderText {
+.MainHeaderText {
     font-size: 24px;
 }
 
-.HomeDescrFirstWrap {
+.MainDescrFirstWrap {
     background: #DAA520;
     padding-top: 64px;
     padding-bottom: 64px;
     padding: 0.01em 16px;
 }
 
-.HomeDescrFirstContent {
+.MainDescrFirstContent {
     max-width: 980px;
     margin: 0 auto;
     overflow: hidden;
@@ -34,28 +34,28 @@
     flex-direction: row;
 }
 
-.HomeDescrFirstDiv {
+.MainDescrFirstDiv {
     margin: 2em 1em;
 }
 
-.HomeDescrFirstDiv h1 {
+.MainDescrFirstDiv h1 {
     font-family: "Montserrat", sans-serif;
     font-size: 36px;
     font-weight: 400; 
 }
 
-.HomeDescrFirstDiv h5 {
+.MainDescrFirstDiv h5 {
     padding: 32px 0;
     font-weight: 400; 
     margin: 10px 0;
     font-size: 18px;
 }
 
-.HomeDescrFirstIconDiv {
+.MainDescrFirstIconDiv {
     margin: auto;
 }
 
-.HomeDescrFirstIcon {
+.MainDescrFirstIcon {
     text-rendering: auto;
     text-align: center;
     font-size: 200px;
@@ -123,19 +123,19 @@
 }
 
 .FeaturesItem:nth-child(1) .FeaturesIcon {
-  background: url(../../../assets/swords.png);
+  background: url(../../assets/swords.png);
 }
 
 .FeaturesItem:nth-child(2) .FeaturesIcon {
-  background: url(../../../assets/castle.png);
+  background: url(../../assets/castle.png);
 }
 
 .FeaturesItem:nth-child(3) .FeaturesIcon {
-  background: url(../../../assets/crown.png);
+  background: url(../../assets/crown.png);
 }
 
 .FeaturesItem:nth-child(4) .FeaturesIcon {
-  background: url(../../../assets/ship.png);
+  background: url(../../assets/ship.png);
 }
 
 .FeaturesItem h2 {
@@ -179,11 +179,11 @@
 }
 
 @media (max-width: 601px) {
-  .HomeDescrFirstContent {
+  .MainDescrFirstContent {
       flex-direction: column;
   }
 
-  .HomeHeaderH {
+  .MainHeaderH {
     font-size: 48px;
   }
 }

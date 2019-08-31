@@ -1,22 +1,25 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-import ProfilePage from './ProfilePage/ProfilePage';
-import Aux from '../../hoc/Aux/Aux';
+import { NavLink } from 'react-router-dom';
+
+import classes from './Profile.css';
 
 
-class Profile extends Component {
-
-    render() {
-        return (
-            <Aux>
-                <ProfilePage
-                    email={this.props.email} 
-                />
-            </Aux>
-        )
-    }
-} 
+const Profile = React.memo(props => {
+    let email = props.email === undefined ? localStorage.getItem('email') : props.email;
+    return (
+            <div className={classes.ProfileWrap}>
+                <div className={classes.ProfileUpperPartWrap}>
+                    <div className={classes.Avatar}></div>
+                    <div className={classes.ProfileUpperTextPartWrap}>
+                        <span className={classes.EmailName}>Your email address: <span>{email}</span></span>
+                        <NavLink className={classes.TestBtn} to="/creating">Create a Test!</NavLink>
+                    </div>
+            </div>
+        </div>
+    )
+})
 
 
 const mapStateToProps = state => {
