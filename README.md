@@ -19,7 +19,7 @@ With the help of this app, users are able to create history quizzes and launch q
 
 ***
 
-The app can be found at **https://ilmastmaksim.github.io/history_quizzes**
+The app can be found at **https://ilmastmaksim.github.io/historyquizzes**
 
 ***
 
