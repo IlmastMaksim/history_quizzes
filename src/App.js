@@ -1,55 +1,67 @@
-import React, { Component } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Layout from './hoc/Layout/Layout';
 import Main from './containers/Main/Main';
-import Profile from './containers/Profile/Profile'; 
-import Selecting from './containers/Tests/Selecting/Selecting';
-import Creating from './containers/Tests/Creating/Creating';
-import Completing from './containers/Tests/Completing/Completing';
-import Auth from './containers/Auth/Auth';
 import Logout from './containers/Auth/Logout/Logout';
 import * as actions from './store/actions/index';
 
-class App extends Component {
-  componentDidMount () {
-    this.props.onTryAutoSignup();
-  }
+const Profile = React.lazy(() => {
+  return import('./containers/Profile/Profile');
+});
 
-  render () {
-    let routes;
-    if (this.props.isAuthenticated) {
-      routes = (
-        <Switch>
-          <Route path="/logout" component={Logout} />
-          <Route path="/tests" component={Selecting} />
-          <Route path="/creating" component={Creating} />
-          <Route path="/completing" component={Completing} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/" exact component={Main} />
-          <Redirect to="/" />
-        </Switch>
-      );
-    }
-    else {
-      routes = (
-        <Switch>
-          <Route path="/auth" component={Auth} />
-          <Route path="/" exact component={Main} />
-          <Redirect to="/" />
-        </Switch>
-      );
-    }
+const Selecting = React.lazy(() => {
+  return import('./containers/Tests/Selecting/Selecting');
+});
 
-    return (
-      <div>
-        <Layout>
-          {routes}
-        </Layout>
-      </div>
+const Completing = React.lazy(() => {
+  return import('./containers/Tests/Completing/Completing');
+});
+
+const Creating = React.lazy(() => {
+  return import('./containers/Tests/Creating/Creating');
+});
+
+const Auth = React.lazy(() => {
+  return import('./containers/Auth/Auth');
+});
+
+const app = props => {
+  useEffect(() => {
+    props.onTryAutoSignup();
+  }, []);
+  let routes;
+  if (props.isAuthenticated) {
+    routes = (
+      <Switch>
+        <Route path="/logout" component={Logout} />
+        <Route path="/tests" component={Selecting} />
+        <Route path="/creating" component={Creating} />
+        <Route path="/completing" component={Completing} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/" exact component={Main} />
+        <Redirect to="/" />
+      </Switch>
     );
   }
+  else {
+    routes = (
+      <Switch>
+        <Route path="/auth" component={Auth} />
+        <Route path="/" exact component={Main} />
+        <Redirect to="/" />
+      </Switch>
+    );
+  }
+
+  return (
+    <div>
+      <Layout>
+        <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
+      </Layout>
+    </div>
+  );
 }
 
 const mapStateToProps = state => {
@@ -64,4 +76,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter( connect( mapStateToProps, mapDispatchToProps )( App ) );
+export default withRouter( connect( mapStateToProps, mapDispatchToProps )( app ) );

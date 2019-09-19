@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 
 import classes from './Selecting.css';
@@ -10,19 +10,19 @@ import Spinner from '../../../components/UI/Spinner/Spinner';
 import * as actions from '../../../store/actions/index';
 
 
-class Selecting extends Component {
+const Selecting = React.memo(props => {
 
-    componentDidMount() {
-        this.props.onFetchTests(this.props.token);
+    useEffect(() => {
+        props.onFetchTests(props.token);
+      }, []);
+    
+
+    const fetchTestId = (event) => {
+        return props.onFetchTest(event.target.id, props.token);
     }
 
-    fetchTestId = (event) => {
-        this.props.onFetchTest(event.target.id, this.props.token);
-    }
- 
-    render() {
-        let dashboard = this.props.fetchedTests === undefined ? <Spinner /> : this.props.fetchedTests.map((el) => {
-            return <Dashboard key={el.id} id={el.id} fetchTestId={this.fetchTestId} title={el.title} descr={el.descr} />
+        let dashboard = props.fetchedTests === undefined ? <Spinner /> : props.fetchedTests.map((el) => {
+            return <Dashboard key={el.id} id={el.id} fetchTestId={fetchTestId} title={el.title} descr={el.descr} />
         });
         return (
             <React.Fragment>
@@ -33,8 +33,7 @@ class Selecting extends Component {
                 </div>
             </React.Fragment>
         )
-    }
-} 
+})
 
 const mapStateToProps = state => {
     return {
